@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electric Car Analytics</title>
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <span class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </span>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="analytics.html" class="active">Analytics</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Electric Car Analytics</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <section>
+        <h2>Popular Electric Car Models</h2>
+        <p>
+            The following chart represents the number of owners or preferences for various electric car models based on recent surveys.
+        </p>
+        <!-- Chart Container -->
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </section>
+
+    <!-- JavaScript for Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+      const ctx = document.getElementById('myChart').getContext('2d');
+
+      const data = {
+        labels: [
+            'Tesla Model 3',
+            'Ford Mustang Mach-E',
+            'Chevrolet Bolt EV',
+            'Nissan Leaf',
+            'Rivian R1T',
+            'Audi e-tron'
+        ],
+        datasets: [{
+            label: 'Number of Owners',
+            data: [5000, 1500, 1200, 800, 600, 400],
+            backgroundColor: [
+                'rgba(62, 59, 235, 0.6)', // Tesla Model 3
+                'rgba(255, 99, 132, 0.6)', // Ford Mustang Mach-E
+                'rgba(54, 162, 235, 0.6)', // Chevrolet Bolt EV
+                'rgba(75, 192, 192, 0.6)', // Nissan Leaf
+                'rgba(153, 102, 255, 0.6)', // Rivian R1T
+                'rgba(255, 159, 64, 0.6)'  // Audi e-tron
+            ],
+            borderColor: [
+                'rgba(62, 59, 235, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+      };
+
+      const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+                labels: {
+                    color: '#333333' // Dark text for legend
+                }
+            },
+            title: {
+                display: true,
+                text: 'Electric Car Ownership Statistics',
+                color: '#3e3beb',
+                font: {
+                    size: 18
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#333333' // Dark text for Y-axis
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#333333' // Dark text for X-axis
+                }
+            }
+        }
+      };
+
+      new Chart(ctx, {
+        type: 'bar',
+        data: data,
+        options: options
+      });
+    </script>
+
+    <!-- JavaScript for Responsive Navigation -->
+    <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const navbarLinks = document.querySelector('.navbar-nav');
+
+        toggleButton.addEventListener('click', () => {
+            navbarLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

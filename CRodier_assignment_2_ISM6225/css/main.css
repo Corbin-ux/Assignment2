@@ -1,0 +1,228 @@
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* White background */
+  color: #333333; /* Dark text for readability */
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  background-color: #3e3beb; /* Blue background for the navbar */
+  overflow: hidden; /* Clear floats */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+/* Toggle Button Styling (for responsive design) */
+.toggle-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+}
+
+.toggle-button .bar {
+  height: 3px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Navigation Links */
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; /* Horizontal layout */
+}
+
+.nav-item {
+  margin-right: 20px;
+}
+
+.nav-item a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.nav-item a:hover, .navbar-nav .nav-item a.active {
+  background-color: #575757; /* Darker blue on hover and active */
+}
+
+/* Header Styling */
+header {
+  background-color: #3e3beb; /* Blue background */
+  color: white; /* White text */
+  padding: 2rem 0;
+  text-align: center;
+}
+
+/* Section Styling */
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff; /* White background for sections */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h1, h2, h3 {
+  color: #3e3beb; /* Blue color for headings */
+}
+
+/* Table Styling */
+.models-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.models-table th, .models-table td {
+  border: 1px solid #dddddd; /* Light gray borders */
+  padding: 8px;
+  text-align: center;
+}
+
+.models-table th {
+  background-color: #f2f2f2; /* Light gray background for headers */
+  color: #333333; /* Dark text for headers */
+}
+
+/* Chart Container Styling */
+.chart-container {
+  position: relative;
+  margin: 40px 0;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the chart area */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Thumbnail Images Styling */
+.thumbnail-images {
+  display: flex;
+  justify-content: center; /* Center the images */
+  flex-wrap: wrap; /* Allow images to wrap to the next line on smaller screens */
+  gap: 20px; /* Space between image boxes */
+  margin-top: 10px; /* Space above the images section */
+}
+
+.image-box {
+  width: 150px; /* Fixed width for uniform boxes */
+  height: 150px; /* Fixed height for uniform boxes */
+  background-color: white; /* White background for the box */
+  display: flex; /* Flexbox for centering the image */
+  align-items: center; /* Vertically center the image */
+  justify-content: center; /* Horizontally center the image */
+  border: 1px solid #dddddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners for a modern look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow: hidden; /* Ensures no image spills outside the box */
+}
+
+.thumbnail {
+  max-width: 100%; /* Scale the image to fit inside the box */
+  max-height: 100%; /* Maintain aspect ratio while fitting inside the box */
+  object-fit: cover; /* Ensures the image covers the entire area without distortion */
+}
+
+/* Form Styles */
+.form-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #e9ecef; /* Light gray background */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+  color: #3e3beb; /* Blue color for form headings */
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #cccccc; /* Light gray borders */
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: #3e3beb; /* Blue background */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #575757; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-nav {
+      flex-direction: column; /* Stack nav items vertically */
+      display: none; /* Hide nav items by default */
+  }
+
+  .navbar-nav.active {
+      display: flex; /* Show nav items when active */
+  }
+
+  .nav-item {
+      margin-right: 0;
+  }
+
+  .thumbnail-images {
+      gap: 10px;
+  }
+
+  .image-box {
+      width: 100px;
+      height: 100px;
+  }
+
+  .toggle-button {
+      display: flex; /* Show toggle button on smaller screens */
+  }
+
+  .chart-container {
+      margin: 20px 0; /* Adjust margin for smaller screens */
+  }
+}

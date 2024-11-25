@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        /* Additional CSS for the form */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="about.html">About</a></li>
+                <li class="nav-item"><a href="analytics.html">Analytics</a></li>
+                <li class="nav-item"><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Contact Us</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <section>
+        <div class="form-container">
+            <h2>Electric Vehicle Ownership Survey</h2>
+            <form id="evForm">
+                <div class="form-group">
+                    <label for="ownsEV">Do you own an electric vehicle?</label>
+                    <select id="ownsEV" name="ownsEV" required>
+                        <option value="">--Select--</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+                <div id="evDetails" style="display: none;">
+                    <div class="form-group">
+                        <label for="make">Make:</label>
+                        <input type="text" id="make" name="make" placeholder="e.g., Tesla">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="model">Model:</label>
+                        <input type="text" id="model" name="model" placeholder="e.g., Model 3">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year:</label>
+                        <input type="number" id="year" name="year" placeholder="e.g., 2022">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mileage">Mileage:</label>
+                        <input type="number" id="mileage" name="mileage" placeholder="e.g., 15,000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cost">Cost ($):</label>
+                        <input type="number" id="cost" name="cost" placeholder="e.g., 39,990">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- JavaScript for Form Interactivity -->
+    <script>
+        document.getElementById('ownsEV').addEventListener('change', function () {
+            var evDetails = document.getElementById('evDetails');
+            if (this.value === 'yes') {
+                evDetails.style.display = 'block';
+            } else {
+                evDetails.style.display = 'none';
+            }
+        });
+
+        // Optional: Handle form submission
+        document.getElementById('evForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent actual form submission
+
+            // Gather form data
+            var ownsEV = document.getElementById('ownsEV').value;
+            var make = document.getElementById('make').value;
+            var model = document.getElementById('model').value;
+            var year = document.getElementById('year').value;
+            var mileage = document.getElementById('mileage').value;
+            var cost = document.getElementById('cost').value;
+
+            // Display form data (for demonstration purposes)
+            alert(
+                "EV Ownership Details:\n" +
+                "Owns EV: " + ownsEV + "\n" +
+                (ownsEV === 'yes' ? (
+                    "Make: " + make + "\n" +
+                    "Model: " + model + "\n" +
+                    "Year: " + year + "\n" +
+                    "Mileage: " + mileage + "\n" +
+                    "Cost: $" + cost
+                ) : "")
+            );
+
+            // Reset the form
+            this.reset();
+            document.getElementById('evDetails').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
